@@ -15,7 +15,7 @@ export default function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Vite + React + Typescript</h1>
       <div className="">
         <h2>Buildadom Marketplace Live on AWS Amplify</h2>
       </div>
