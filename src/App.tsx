@@ -16,11 +16,8 @@ export default function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <h1>Buildadom Marketplace</h1>
+      <div className="">
+        <h2>Buildadom Marketplace Live on AWS Amplify</h2>
       </div>
     </div>
   )
