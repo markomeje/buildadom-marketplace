@@ -1,0 +1,15 @@
+.wrapper {
+   height: 712px;
+   background-image: url('../../assets/bannerDown.png');
+   background-position: bottom;
+   background-repeat: no-repeat;
+   background-size: auto;
+}
+
+.inner {
+   padding-top: 50px;
+}
+
+.features {
+   padding: 50px 0;
+}
