@@ -6,6 +6,23 @@
 
 }
 
+ul {
+   padding: 0;
+   list-style-type: none;
+   margin: 0;
+}
+
+li:before {
+   background-color: var(--orange-color);
+   border-radius: 50%;
+   content: "";
+   display: inline-block;
+   margin-right: 10px;
+   margin-bottom: 2px;
+   height: 10px;
+   width: 10px;
+}
+
 .bg-main {
    background-color: var(--main-color) !important;
 }

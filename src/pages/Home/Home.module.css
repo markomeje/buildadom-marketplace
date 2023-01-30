@@ -4,7 +4,6 @@
    background-position: bottom;
    background-repeat: no-repeat;
    background-size: auto;
-   /* width: 100%; */
 }
 
 .inner {
@@ -12,5 +11,22 @@
 }
 
 .features {
-   padding: 50px 0 0 0;
+   padding: 120px 0 80px;
+}
+
+.cta {
+   background: linear-gradient(0deg, rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0.87)), url('../../assets/Site.jpg');
+   padding: 120px 0;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.process {
+   padding: 120px 0;
+}
+
+.security {
+   padding: 140px 0;
+   background-color: #000000;
 }
