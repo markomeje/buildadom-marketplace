@@ -2,6 +2,7 @@
   --main-color: #0156FF;
   --dark-color: #090909;
   --orange-color: #E9A426;
+  --gray-color: #C8CFDE;
 
 }
 
@@ -27,4 +28,8 @@
 
 .text-main {
    color: var(--main-color) !important;
+}
+
+.bg-gray {
+   background-color: var(--gray-color) !important;
 }
