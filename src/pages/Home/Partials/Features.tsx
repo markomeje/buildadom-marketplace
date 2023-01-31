@@ -44,7 +44,7 @@ export default function Features() {
                         </div>
                      </div>
                      <h4 className='text-dark'>{ feature.title }</h4>
-                     <p>{ feature.text }</p>
+                     <p className='text-dark'>{ feature.text }</p>
                   </Col>)
                })}
             </Row>

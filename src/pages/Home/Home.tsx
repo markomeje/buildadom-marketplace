@@ -4,6 +4,9 @@ import homeStyles from './Home.module.css'
 import Features from './Partials/Features'
 import { processFeatures } from '../../data/features';
 import Security from '../../assets/Security.png';
+import { BsArrowRight } from 'react-icons/bs';
+import Support from '../../assets/Support.png';
+import Faq from './Partials/Faq';
 
 export default function Home() {
    return (
@@ -47,12 +50,12 @@ export default function Home() {
                <Row>
                   { processFeatures && processFeatures.map((feature, index) => {
                      return (<Col key={index} sm='12' md='6' lg='3' className='mb-4'>
-                        <div className='bg-light p-4' style={{ height: '480px' }}>
+                        <div className='bg-light border p-4' style={{ height: '480px', borderRadius: '24px' }}>
                            <div className='p-3 bg-light border mb-3 rounded' style={{ width: '65px', height: '65px' }}>
                               <Image src={feature.icon} className='img-fluid mb-3' />
                            </div>
                            <div className=''>
-                              <h5 className='text-dark'>
+                              <h5 className='text-dark mb-4'>
                                  {feature.title}
                               </h5>
                               <ul>
@@ -75,7 +78,7 @@ export default function Home() {
             <Container>
                <Row className='d-flex align-items-center'>
                   <Col sm='12' md='6' className='mb-4'>
-                     <h4 className='text-white mb-3'>You're in Safe Hands</h4>
+                     <h4 className='text-white mb-4'>You're in Safe Hands</h4>
                      <p className='text-white'>Experience a 40% boost in computing from last generation. MSI Desktop equips the 10th Gen. Intel® Core™ i7 processor with the upmost computing power to bring you an unparalleled gaming experience. Performance compared to i7-9700. Specs varies by model.</p>
                   </Col>
                   <Col sm='12' md='6'>
@@ -84,6 +87,29 @@ export default function Home() {
                      </div>
                   </Col>
                </Row>
+            </Container>
+         </section>
+         <section className='bg-light' style={{ padding: '80px 0' }}>
+            <Container style={{ maxWidth: '1028px' }}>
+               <Row className='d-flex align-items-center'>
+                  <Col className='mb-4' sm='12' md='6'>
+                     {['Product Support', 'Our Policy', 'Our Buyer Guide'].map((text, index) => {
+                        return (<div key={index} className='bg-white mb-4 d-flex justify-content-between rounded p-3'>
+                           <div className='text-dark'>{text}</div>
+                           <BsArrowRight />
+                        </div>)
+                     })}
+                  </Col>
+                  <Col className='mb-4' sm='12' md='6'>
+                     <Image src={Support} className='img-fluid' />
+                  </Col>
+               </Row>
+            </Container>
+         </section>
+         <section className='bg-white' style={{ padding: '140px 0' }}>
+            <Container style={{ maxWidth: '767px' }}>
+               <h3 className='text-dark text-center mb-4'>Frequently Asked Questions</h3>
+               <Faq />
             </Container>
          </section>
       </>
