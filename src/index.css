@@ -5,3 +5,9 @@
 .bg-main {
    background-color: var(--main-color) !important;
 }
+
+@media (max-width: 767px) {
+   .text-xs-center {
+      text-align: center !important;
+   } 
+}

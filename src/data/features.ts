@@ -82,20 +82,23 @@ export const subFeatures = [
       icon: Cube,
       iconBgColor: '#EBBDDD',
       position: '',
-      left: '10px'
+      left: '10px',
+      top: '30px'
    },
    {
       title: 'Make earnings',
       icon: Vector,
       iconBgColor: 'rgba(1, 86, 255, 0.4)',
       position: '',
-      left: '40px'
+      left: '40px',
+      top: '60px'
    },
    {
       title: 'Increase visibility',
       icon: Award,
       iconBgColor: 'rgba(255, 184, 0, 0.4)',
       position: '',
-      left: '-20px'
+      left: '20px',
+      top: '90px'
    },
 ];
