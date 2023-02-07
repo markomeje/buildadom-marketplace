@@ -1,12 +1,22 @@
-import Navbar from './components/Navbar/Navbar'
-import './App.css'
-import Home from './pages/Home/Home'
+import { Suspense } from 'react';
+import Navbar from './components/Navbar/Navbar';
+import { Routes, Route } from 'react-router-dom';
+import Loading from './components/Loading'
+//import { Routes, Route } from "react-router-loading";
+//import { useIsFetching } from 'react-query';
+import { routes } from './routes';
+import './App.css';
 
 export default function App() {
    return (
-      <div className="">
+      <Suspense fallback={<Loading />}>
          <Navbar />
-         <Home />
-      </div>
+         <Routes>
+            {routes.map((route, index) => {
+               const Element: React.ReactNode | null = route.element;
+               return (<Route path={route.path} element={Element} key={index} />)
+            })}
+         </Routes>
+      </Suspense>
    )
 }

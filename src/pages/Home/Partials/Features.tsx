@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Col, Container, Row, Image } from "react-bootstrap";
-import girl from "../../../assets/girl.png";
-import { mainFeatures, subFeatures } from "../../../data/features";
+import girl from "../../../assets/brit.png";
+import { mainFeatures } from "../../../data/features";
 
 export default function Features() {
    return (
@@ -9,22 +9,8 @@ export default function Features() {
          <Container style={{ maxWidth: '997px' }}>
             <Row className='d-flex align-items-center'>
                <Col sm='12' md='7' lg='6' className='mb-4'>
-                  <div className='w-100 mb-5'>
-                     <div className='bg-gray position-relative w-100'>
-                        <div>
-                           <Image src={girl} className='img-fluid w-100' />
-                        </div>
-                        <div className='position-absolute' style={{ zIndex: 2, top: '40px', right: '0' }}>
-                           {subFeatures && subFeatures.map((feature, index) => {
-                              return (<div key={index} className='rounded bg-white d-flex align-items-center w-auto shadow-md position-relative p-2' style={{ left: `${feature.left}`, top: `${feature.top}` }}>
-                                 <div className='p-1 rounded text-center me-2' style={{ backgroundColor: `${feature.iconBgColor}`, width: '30px', height: '30px', lineHeight: '18px' }}>
-                                    <Image src={feature.icon} className='img-fluid' />
-                                 </div>
-                                 <small className='text-dark'>{feature.title}</small>
-                              </div>)
-                           })}
-                        </div>
-                     </div>
+                  <div className="mb-5">
+                     <Image src={girl} className='img-fluid w-100' />
                   </div>
                </Col>
                <Col sm='12' md='5' lg='6' className='mb-4 text-md-start text-center'>

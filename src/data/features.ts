@@ -1,7 +1,3 @@
-import Vector from "../assets/icons/Vector.png";
-import Cube from "../assets/icons/Cube.png";
-import Award from "../assets/icons/award.png";
-
 import Rectangle50 from "../assets/icons/Rectangle50.png";
 import Rectangle51 from "../assets/icons/Rectangle51.png";
 import Rectangle52 from "../assets/icons/Rectangle52.png";
@@ -73,32 +69,5 @@ export const mainFeatures = [
       icon: Search,
       iconBgColor: 'rgba(255, 184, 0, 0.4)',
       text: 'Join manufacturers all over the world and sell your product to a wider range of custormers and increase your earning rate through our mega platform  and also advertise your product to go top of the list anytime.'
-   },
-];
-
-export const subFeatures = [
-   {
-      title: 'Sell your products',
-      icon: Cube,
-      iconBgColor: '#EBBDDD',
-      position: '',
-      left: '10px',
-      top: '30px'
-   },
-   {
-      title: 'Make earnings',
-      icon: Vector,
-      iconBgColor: 'rgba(1, 86, 255, 0.4)',
-      position: '',
-      left: '40px',
-      top: '60px'
-   },
-   {
-      title: 'Increase visibility',
-      icon: Award,
-      iconBgColor: 'rgba(255, 184, 0, 0.4)',
-      position: '',
-      left: '20px',
-      top: '90px'
    },
 ];

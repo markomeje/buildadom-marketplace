@@ -7,6 +7,7 @@ import Security from '../../assets/Security.png';
 import { BsArrowRight } from 'react-icons/bs';
 import Support from '../../assets/Support.png';
 import Faq from './Partials/Faq';
+import Footer from '../../components/Footer/Footer';
 
 export default function Home() {
    return (
@@ -16,7 +17,7 @@ export default function Home() {
                <div className={`bg-white w-100 ${homeStyles.inner}`}>
                   <Row className='d-flex justify-content-center text-center'>
                      <Col sm='12' md='10' lg='7'>
-                        <h1 className='text-dark mb-4'><span className='text-orange'>Buildadom</span> is building the largest digital ecosystem of innovative solutions for transforming the building material industry in Africa</h1>
+                        <h1 className='text-dark display-5 mb-4'><span className='text-orange'>Buildadom</span> is building the largest digital ecosystem of innovative solutions for transforming the building material industry in Africa</h1>
                         <Row className='d-flex justify-content-center text-center'>
                            <Col md="10" lg="7">
                               <p className='text-dark mb-4'>Sign now and be among the first people to enjoy our amazing features when we launch</p>
@@ -79,7 +80,7 @@ export default function Home() {
                <Row className='d-flex align-items-center'>
                   <Col sm='12' md='6' className='mb-4'>
                      <h4 className='text-white mb-4'>You're in Safe Hands</h4>
-                     <p className='text-white'>Experience a 40% boost in computing from last generation. MSI Desktop equips the 10th Gen. Intel® Core™ i7 processor with the upmost computing power to bring you an unparalleled gaming experience. Performance compared to i7-9700. Specs varies by model.</p>
+                     <p className='text-white lead'>Experience a 40% boost in computing from last generation. MSI Desktop equips the 10th Gen. Intel® Core™ i7 processor with the upmost computing power to bring you an unparalleled gaming experience. Performance compared to i7-9700. Specs varies by model.</p>
                   </Col>
                   <Col sm='12' md='6'>
                      <div className=''>
@@ -112,6 +113,7 @@ export default function Home() {
                <Faq />
             </Container>
          </section>
+         <Footer />
       </>
    )
 }
