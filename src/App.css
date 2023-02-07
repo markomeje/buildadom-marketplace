@@ -7,7 +7,9 @@
 }
 
 html, body {
-   font-family: 'Fraunces', serif;
+   font-family: freizeit_bold;
+   font-weight: 500!important;
+   /* font-family: 'Fraunces', serif; */
 }
 
 ul {
