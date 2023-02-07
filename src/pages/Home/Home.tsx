@@ -39,7 +39,7 @@ export default function Home() {
             <Container>
                <Row className='d-flex justify-content-center text-center'>
                   <Col sm='12' md='10' lg='5'>
-                     <h3 className='text-white mb-4'>Sign now and be among the first people to enjoy our amazing features when we launch</h3>
+                     <h3 className='text-white mb-4'>Sign now and be among the first people to enjoy our amazing features when we launch.</h3>
                      <Button className='bg-main rounded-pill px-4 py-2'>Signup Now</Button>
                   </Col>
                </Row>
