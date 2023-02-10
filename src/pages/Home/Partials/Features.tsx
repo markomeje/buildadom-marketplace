@@ -33,8 +33,8 @@ export default function Features() {
                            </div>
                         </div>
                      </div>
-                     <h1 className='text-dark'>{ feature.title }</h1>
-                     <p className='text-dark'>{ feature.text }</p>
+                     <p className='text-dark' style={{ fontFamily: 'Poppins', fontSize: '24px' }}>{ feature.title }</p>
+                     <p className='text-dark' style={{ fontSize: '18px' }}>{ feature.text }</p>
                   </Col>)
                })}
             </Row>

@@ -37,7 +37,7 @@ export default function Footer() {
                      <Link to='/' className='d-block text-white mb-2'>Search</Link>
                      <Link to='/' className='d-block text-white mb-2'>Contact Us</Link>
                      <Link to='/' className='d-block text-white mb-2'>Orders and Returns</Link>
-                     <Link to='/signup' className='d-block text-white'>Signup</Link>
+                     <Link to='/signup' className='d-block text-white'>Sign Up</Link>
                   </Col>
                   <Col sm="12" md="4">
                      <h3 className='text-white mb-3'>Address</h3>

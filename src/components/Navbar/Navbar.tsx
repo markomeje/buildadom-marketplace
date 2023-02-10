@@ -1,7 +1,8 @@
-import { Button, Container, Image } from 'react-bootstrap'
-import navbarStyles from "./Navbar.module.css";
+import { Container, Image } from 'react-bootstrap'
+// import navbarStyles from "./Navbar.module.css";
 import Vector24 from '../../assets/Vector24.png';
 import { Link } from 'react-router-dom';
+import { RxHamburgerMenu } from 'react-icons/rx'
 
 export default function Navbar() {
    return (
@@ -12,7 +13,8 @@ export default function Navbar() {
                   <Image src={Vector24} />
                </Link>
                <div>
-                  <Link to='/signup' className={`px-4 py-2 text-white text-decoration-none rounded-pill bg-main ${navbarStyles.button}`}>Signup Now</Link>
+                  <RxHamburgerMenu size='2em' className='text-main cursor-pointer' />
+                  {/* <Link to='/signup' className={`px-4 py-2 text-white text-decoration-none rounded-pill bg-main ${navbarStyles.button}`}>Signup Now</Link> */}
                </div>
             </div>
          </Container>

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, Col, Container, Row, Image } from 'react-bootstrap'
 import homeStyles from './Home.module.css'
 import Features from './Partials/Features'
@@ -8,6 +7,7 @@ import { BsArrowRight } from 'react-icons/bs';
 import Support from '../../assets/Support.png';
 import Faq from './Partials/Faq';
 import Footer from '../../components/Footer/Footer';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
    return (
@@ -20,11 +20,13 @@ export default function Home() {
                         <h1 className='text-dark display-5 mb-4'><span className='text-orange'>Buildadom</span> is building the largest digital ecosystem of innovative solutions for transforming the building material industry in Africa</h1>
                         <Row className='d-flex justify-content-center text-center'>
                            <Col md="10" lg="7">
-                              <p className='text-dark mb-4'>Sign now and be among the first people to enjoy our amazing features when we launch</p>
+                              <p className='text-dark lead mb-4'>Sign Up now and be among the first people to enjoy our amazing features when we launch</p>
                            </Col>
                         </Row>
                         <div className='d-flex justify-content-center'>
-                           <Button className='bg-main rounded-pill me-4 px-4 py-2'>Signup Now</Button>
+                           <Link to='/signup'>
+                              <Button className='bg-main rounded-pill me-4 px-4 py-2'>Sign Up Now</Button>
+                           </Link>
                            <Button className='border-main bg-transparent text-main rounded-pill px-4 py-2'>Learn More</Button>
                         </div>
                      </Col>
@@ -39,26 +41,26 @@ export default function Home() {
             <Container>
                <Row className='d-flex justify-content-center text-center'>
                   <Col sm='12' md='10' lg='5'>
-                     <h3 className='text-white mb-4'>Sign now and be among the first people to enjoy our amazing features when we launch.</h3>
+                     <h3 className='text-white mb-4'>Sign Up now and be among the first people to enjoy our amazing features when we launch.</h3>
                      <Button className='bg-main rounded-pill px-4 py-2'>Signup Now</Button>
                   </Col>
                </Row>
             </Container>
          </section>
          <section className={`w-100 bg-white ${homeStyles.process}`}>
-            <Container>
+            <Container style={{ maxWidth: '780px' }}>
                <h1 className='text-main text-center mb-4'>What do you want to achieve?</h1>
                <Row>
                   { processFeatures && processFeatures.map((feature, index) => {
-                     return (<Col key={index} sm='12' md='6' lg='3' className='mb-4'>
+                     return (<Col key={index} sm='12' md='6' className='mb-4'>
                         <div className='bg-light border p-4' style={{ height: '480px', borderRadius: '24px' }}>
                            <div className='p-3 bg-light border mb-3 rounded' style={{ width: '65px', height: '65px' }}>
                               <Image src={feature.icon} className='img-fluid mb-3' />
                            </div>
                            <div className=''>
-                              <h5 className='text-dark mb-4'>
+                              <h4 className='text-dark mb-4'>
                                  {feature.title}
-                              </h5>
+                              </h4>
                               <ul>
                                  {feature.text && feature.text.map((point, index) => {
                                     return (<li key={index} className='mb-2 text-orange'>
