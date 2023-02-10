@@ -32,6 +32,11 @@ li:before {
    width: 10px;
 }
 
+.form-group input:focus{
+   outline: 0px !important; 
+   box-shadow: none !important;
+}
+
 .bg-main {
    background-color: var(--main-color) !important;
 }
