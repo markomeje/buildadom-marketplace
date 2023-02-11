@@ -10,21 +10,26 @@ type ModalProps = {
 
 export default function SignupModal({ title, show, handleClose = () => {}, type}:ModalProps ){
    const isType = type === 'business' ? 'Business' : '';
+   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+        // my logic
+   };
+   
    return (
       <Modal show={show} onHide={handleClose} size="lg">
-         <Modal.Body className='px-5 pb-5 position-relative'>
+         <Modal.Body className='px-4 py-5 position-relative'>
             <div className='text-center'>
-               <div className='btn-close position-absolute cursor-pointer' style={{ top: '20px', right: '20px', zIndex: '3' }}></div>
-               <h4 className='mb-4' style={{ fontWeight: '600' }}>{title}</h4>
-               <div className='position-relative justify-content-center align-items-center g-0 d-flex mb-4'>
+               <div className='btn-close position-absolute cursor-pointer' style={{ top: '15px', right: '20px', zIndex: '3' }} onClick={handleClose}></div>
+               <h4 className='mb-3'>{title}</h4>
+               <div className='position-relative justify-content-center align-items-center g-0 d-flex mb-3'>
                   <div className='bg-main' style={{ width: '194px', height: '2.5px' }}></div>
                   <div className='rounded-pill bg-main' style={{ width: '40px', height: '40px' }}></div>
                </div>
-               <div className='m-auto mb-5' style={{ maxWidth: '380px' }}>
+               <div className='m-auto mb-4' style={{ maxWidth: '380px' }}>
                   <p className='text-dark'>Kindly provide all the following details to help us set up your store.</p>
                </div>
             </div>
-            <Form action="" method='post'>
+            <Form onSubmit={handleSubmit} method='post'>
                <Row>
                   <Col md='6'>
                      <Form.Group className="mb-3">

@@ -17,7 +17,7 @@ export default function Home() {
                <div className={`bg-white w-100 ${homeStyles.inner}`}>
                   <Row className='d-flex justify-content-center text-center'>
                      <Col sm='12' md='10' lg='7'>
-                        <h1 className='text-dark mb-4' style={{ fontSize: '40px', fontWeight: '600', lineHeight: '60px', letterSpacing: '0px' }}><span className='text-orange'>Buildadom</span> is building the largest digital ecosystem of innovative solutions for transforming the building material industry in Africa</h1>
+                        <h1 className='text-dark mb-4'><span className='text-orange'>Buildadom</span> is building the largest digital ecosystem of innovative solutions for transforming the building material industry in Africa</h1>
                         <Row className='d-flex justify-content-center text-center'>
                            <Col md="10" lg="7">
                               <p className='text-dark lead mb-4'>Sign Up now and be among the first people to enjoy our amazing features when we launch</p>
@@ -25,7 +25,7 @@ export default function Home() {
                         </Row>
                         <div className='d-flex justify-content-center'>
                            <Link to='/signup'>
-                              <Button className='bg-main rounded-pill me-4 px-4 py-2'>Sign Up Now</Button>
+                              <Button className='bg-main rounded-pill me-4 px-4 py-2'>Sign Up</Button>
                            </Link>
                            <Button className='border-main bg-transparent text-main rounded-pill px-4 py-2'>Learn More</Button>
                         </div>
@@ -41,7 +41,7 @@ export default function Home() {
             <Container>
                <Row className='d-flex justify-content-center text-center'>
                   <Col sm='12' md='10' lg='9'>
-                     <h3 className='text-white mb-4' style={{ fontSize: '40px', fontWeight: '400', letterSpacing: '0px' }}>Sign Up now and be among the first people to enjoy our amazing features when we launch.</h3>
+                     <h3 className='text-white mb-4' style={{ fontWeight: '400', letterSpacing: '0px' }}>Sign Up now and be among the first people to enjoy our amazing features when we launch.</h3>
                      <Link to='/signup'>
                         <Button className='bg-main rounded-pill px-4 py-2'>Sign Up Now</Button>
                      </Link>

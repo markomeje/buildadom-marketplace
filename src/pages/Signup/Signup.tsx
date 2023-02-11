@@ -11,7 +11,7 @@ export default function Signup() {
    const [title, setTitle] = useState('');
    const [type, setType] = useState('business');
 
-   return (
+   return (                                                          
       <>
          <SignupModal title={title} type={type} show={show} handleClose={() => setShow(false)} />
          <Container style={{ marginTop: '50px', maxWidth: '1203px' }}>
@@ -24,8 +24,8 @@ export default function Signup() {
                <Col sm='12' md='6' className='text-center'>
                   <div className='px-3' style={{ padding: '40px 0 100px' }}>
                      <Image src={SignupArrow} className='mb-3' />
-                     <h2 className='text-dark' style={{ fontSize: '40px', fontWeight: '600' }}>Welcome to buildadom</h2>
-                     <p className='text-dark px-lg-5' style={{ fontSize: '18px' }}>Choose method of registration to proceed with creatng your account with us.</p>
+                     <h2 className='text-dark'>Welcome to buildadom</h2>
+                     <p className='text-dark px-lg-5'>Choose method of registration to proceed with creatng your account with us.</p>
                      <div className='d-flex justify-content-center flex-column px-lg-5'>
                         <Button className='bg-main rounded-pill px-4 py-2 text-white mb-4' onClick={() => {setTitle('Create your Individual business account'); setShow(true); setType('individual')}} title="">Register as an Individual</Button>
                         <Button className='bg-main rounded-pill px-4 py-2 text-white' onClick={() => {setTitle('Create your business account'); setShow(true); setType('business')}}>Register as an business</Button>
