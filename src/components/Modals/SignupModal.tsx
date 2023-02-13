@@ -1,5 +1,6 @@
-import { ReactNode, useState } from 'react';
+import { useReducer, useState } from 'react';
 import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
+import axios from 'axios';
 
 type ModalProps = {
    title: string,
@@ -8,11 +9,55 @@ type ModalProps = {
    type: string,
 };
 
+const formReducer = (state: object, event: any) => {
+   return {
+      ...state,
+      [event.name]: event.value
+   }
+}
+
 export default function SignupModal({ title, show, handleClose = () => {}, type}:ModalProps ){
+   const [submitting, setSubmitting] = useState(false);
+   const [form, setForm] = useReducer(formReducer, {});
+   const [errors, setErrors] = useState<any>({});
+   const [successful, setSuccessful] = useState(false);
+
    const isType = type === 'business' ? 'Business' : '';
-   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-        // my logic
+   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      setErrors({});
+
+      setSubmitting(true);
+      Object.assign(form, {type: type});
+      const url = import.meta.env.VITE_API_URL;
+
+      axios.post(`${url}/onboarding`, form).then((response) => {
+         console.log(response.data.errors);
+         const data = response?.data;
+         if (data['errors']) {
+            setErrors(data['errors']);
+            console.log(errors);
+         }else {
+            setSuccessful(true);
+            console.log(data);
+         }
+
+         setSubmitting(false);
+      }).catch(function (error) {
+         setSubmitting(false);
+         console.log('Error ' + error);
+      });
+   };
+
+   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = event.target;
+      setForm({
+         name: name,
+         value: value,
+      });
+
+      errors[name] = '';
+      setErrors({...errors});
    };
    
    return (
@@ -29,50 +74,58 @@ export default function SignupModal({ title, show, handleClose = () => {}, type}
                   <p className='text-dark'>Kindly provide all the following details to help us set up your store.</p>
                </div>
             </div>
-            <Form onSubmit={handleSubmit} method='post'>
+            {successful ? (<div className='alert alert-success mb-0'>Thank you for your interest. We shall contact you as soon as we lunch.</div>) : (<Form onSubmit={handleSubmit} method='post'>
                <Row>
                   <Col md='6'>
                      <Form.Group className="mb-3">
                         <Form.Label>First Name</Form.Label>
-                        <Form.Control type="text" name="firstname" placeholder="Enter your name" />
+                        <Form.Control type="text" className={errors && errors?.firstname ? 'is-invalid' : ''} name="firstname" placeholder="Enter your name" onChange={handleChange} />
+                        {errors && errors?.firstname ? (<small className='text-danger'>{errors.firstname}</small>) : ''}
                      </Form.Group>
                   </Col>
                   <Col md='6'>
                      <Form.Group className="mb-3">
                         <Form.Label>Last Name</Form.Label>
-                        <Form.Control type="text" name="lastname" placeholder="Enter your name" />
+                        <Form.Control type="text" className={errors?.lastname && 'is-invalid'} name="lastname" placeholder="Enter your name" onChange={handleChange} />
+                        {errors && errors?.lastname ? (<small className='text-danger'>{errors.lastname}</small>) : ''}
                      </Form.Group>
                   </Col>
                   {type === 'business' && (<Col md='12'>
                      <Form.Group className="mb-3">
                         <Form.Label>Business Name</Form.Label>
-                        <Form.Control type="text" name="name" placeholder="Enter your business name" />
+                        <Form.Control type="text" className={errors?.business_name && 'is-invalid'} name="business_name" placeholder="Enter your business name" onChange={handleChange} />
+                        {errors && errors?.business_name ? (<small className='text-danger'>{errors.business_name}</small>) : ''}
                      </Form.Group>
                   </Col>)}
-                  
                   <Col md='12'>
                      <Form.Group className="mb-3">
                         <Form.Label>{isType} Phone</Form.Label>
-                        <Form.Control type="text" name="phone" placeholder="Enter phone" />
+                        <Form.Control type="text" className={errors?.phone && 'is-invalid'} name="phone" placeholder="Enter phone" onChange={handleChange} />
+                        {errors && errors?.phone ? (<small className='text-danger'>{errors.phone}</small>) : ''}
                      </Form.Group>
                   </Col>
                   <Col md='12'>
                      <Form.Group className="mb-3">
                         <Form.Label>{isType} Email</Form.Label>
-                        <Form.Control type="email" name="email" placeholder="Enter email" />
+                        <Form.Control type="email" className={errors?.email && 'is-invalid'} name="email" placeholder="Enter email" onChange={handleChange} />
+                        {errors && errors?.email ? (<small className='text-danger'>{errors.email}</small>) : ''}
                      </Form.Group>
                   </Col>
                </Row>
                <Form.Group className="mb-3">
                   <Form.Label>Location</Form.Label>
-                  <Form.Control type="text" placeholder="Enter location" />
+                  <Form.Control type="text" className={errors?.location && 'is-invalid'} placeholder="Enter location" name="location" onChange={handleChange} />
+                  {errors && errors?.location ? (<small className='text-danger'>{errors.location}</small>) : ''}
                </Form.Group>
                <Form.Group className="mb-4">
                   <Form.Label>What kind of building material do you sell?</Form.Label>
-                  <Form.Control type="text" placeholder="Material type" />
+                  <Form.Control type="text" className={errors?.materials && 'is-invalid'} placeholder="Material type" name="materials" onChange={handleChange} />
+                  {errors && errors?.materials ? (<small className='text-danger'>{errors.materials}</small>) : ''}
                </Form.Group>
-               <Button className='bg-main px-4 py-2 btn-lg rounded-pill' type="submit">Submit</Button>
-            </Form>
+               <Button className='bg-main px-4 text-center py-2 btn-lg rounded-pill' disabled={submitting} type="submit" style={{ width: '160px' }}>
+                  <small className='text-white'>{submitting ? 'Submitting' : 'Submit'}</small>
+               </Button>
+            </Form>)}
          </Modal.Body>
       </Modal>
    );
