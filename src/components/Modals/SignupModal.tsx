@@ -1,5 +1,5 @@
 import { useReducer, useState } from 'react';
-import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
+import { Alert, Button, Col, Form, Modal, Row } from 'react-bootstrap';
 import axios from 'axios';
 
 type ModalProps = {
@@ -21,11 +21,13 @@ export default function SignupModal({ title, show, handleClose = () => {}, type}
    const [form, setForm] = useReducer(formReducer, {});
    const [errors, setErrors] = useState<any>({});
    const [successful, setSuccessful] = useState(false);
+   const [message, setMessage] = useState('');
 
    const isType = type === 'business' ? 'Business' : '';
    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       setErrors({});
+      setMessage('');
 
       setSubmitting(true);
       Object.assign(form, {type: type});
@@ -45,7 +47,7 @@ export default function SignupModal({ title, show, handleClose = () => {}, type}
          setSubmitting(false);
       }).catch(function (error) {
          setSubmitting(false);
-         console.log('Error ' + error);
+         setMessage('An error occurred. Try again later');
       });
    };
 
@@ -122,6 +124,7 @@ export default function SignupModal({ title, show, handleClose = () => {}, type}
                   <Form.Control type="text" className={errors?.materials && 'is-invalid'} placeholder="Material type" name="materials" onChange={handleChange} />
                   {errors && errors?.materials ? (<small className='text-danger'>{errors.materials}</small>) : ''}
                </Form.Group>
+               {message && <Alert className='mb-4' variant='danger'>{message}</Alert>}
                <Button className='bg-main px-4 text-center py-2 btn-lg rounded-pill' disabled={submitting} type="submit" style={{ width: '160px' }}>
                   <small className='text-white'>{submitting ? 'Submitting' : 'Submit'}</small>
                </Button>
