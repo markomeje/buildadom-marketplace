@@ -33,7 +33,15 @@ export default function SignupModal({ title, show, handleClose = () => {}, type}
       Object.assign(form, {type: type});
       const url = import.meta.env.VITE_API_URL;
 
-      axios.post(`${url}/onboarding`, form).then((response) => {
+      const config = {
+         headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+            'Content-Type': 'application/json'
+         }
+      };
+
+      axios.post('https://store.buildadom.net/api/onboarding', form, config).then((response) => {
          console.log(response.data.errors);
          const data = response?.data;
          if (data['errors']) {
