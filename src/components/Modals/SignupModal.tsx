@@ -47,6 +47,7 @@ export default function SignupModal({ title, show, handleClose = () => {}, type}
          const data = response?.data;
          if (data['errors']) {
             setErrors(data['errors']);
+            setMessage(data['message']);
             console.log(errors);
          }else {
             setSuccessful(true);
