@@ -32,7 +32,6 @@ export default function SignupModal({ title, show, handleClose = () => {}, type}
 
       setSubmitting(true);
       Object.assign(form, {type: type});
-      const url = import.meta.env.VITE_API_URL;
 
       const config = {
          headers: {
@@ -42,7 +41,8 @@ export default function SignupModal({ title, show, handleClose = () => {}, type}
          }
       };
 
-      axios.post('https://store.buildadom.net/api/onboarding', form, config).then((response) => {
+      const baseUrl = import.meta.env.VITE_API_URL || 'https://onboarding.buildadom.net/api/v1';
+      axios.post(`${baseUrl}/create`, form, config).then((response) => {
          console.log(response.data.errors);
          const data = response?.data;
          if (data['errors']) {
@@ -74,6 +74,7 @@ export default function SignupModal({ title, show, handleClose = () => {}, type}
    return (
       <Modal show={show} onHide={handleClose} size="lg">
          <Modal.Body className='px-4 py-5 position-relative'>
+            <div className='btn-close position-absolute cursor-pointer' style={{ top: '15px', right: '20px', zIndex: '3' }} onClick={handleClose}></div>
             {successful ? (<div className='text-center m-auto' style={{ maxWidth: '570px' }}>
                <div className='mb-4'>
                   <Image src={Circular} className='' />
@@ -82,7 +83,6 @@ export default function SignupModal({ title, show, handleClose = () => {}, type}
                <div className='text-dark'>Thank you for signing up to be one of the early users of Buildadom. Our engineers are currently working to deliver our full stack of features to you. In the mean time, a customer support representative will contact you to let you know of next steps. We can't wait to start doing business with you.</div>
                </div>) : (<>
                <div className='text-center'>
-                  <div className='btn-close position-absolute cursor-pointer' style={{ top: '15px', right: '20px', zIndex: '3' }} onClick={handleClose}></div>
                   <h4 className='mb-3'>{title}</h4>
                   <div className='position-relative justify-content-center align-items-center g-0 d-flex mb-3'>
                      <div className='bg-main' style={{ width: '194px', height: '2.5px' }}></div>
@@ -97,14 +97,14 @@ export default function SignupModal({ title, show, handleClose = () => {}, type}
                      <Col md='6'>
                         <Form.Group className="mb-3">
                            <Form.Label>First Name</Form.Label>
-                           <Form.Control type="text" className={errors && errors?.firstname ? 'is-invalid' : ''} name="firstname" placeholder="Enter your name" onChange={handleChange} />
+                           <Form.Control type="text" className={errors && errors?.firstname ? 'is-invalid' : ''} name="firstname" placeholder="Enter your first name" onChange={handleChange} />
                            {errors && errors?.firstname ? (<small className='text-danger'>{errors.firstname}</small>) : ''}
                         </Form.Group>
                      </Col>
                      <Col md='6'>
                         <Form.Group className="mb-3">
                            <Form.Label>Last Name</Form.Label>
-                           <Form.Control type="text" className={errors?.lastname && 'is-invalid'} name="lastname" placeholder="Enter your name" onChange={handleChange} />
+                           <Form.Control type="text" className={errors?.lastname && 'is-invalid'} name="lastname" placeholder="Enter your last name" onChange={handleChange} />
                            {errors && errors?.lastname ? (<small className='text-danger'>{errors.lastname}</small>) : ''}
                         </Form.Group>
                      </Col>
