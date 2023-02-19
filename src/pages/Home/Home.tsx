@@ -43,7 +43,7 @@ export default function Home() {
             <Container>
                <Row className='d-flex justify-content-center text-center'>
                   <Col sm='12' md='10' lg='8'>
-                     <h3 className='text-white mb-4' style={{ fontWeight: '400', letterSpacing: '0px' }}>Sign up now and be among the first people to enjoy our amazing features when we launch.</h3>
+                     <h3 className='text-white mb-4'>Sign up now and be among the first people to enjoy our amazing features when we launch.</h3>
                      <Link to='/signup'>
                         <Button className='bg-main rounded-pill px-4 py-2'>Sign Up Now</Button>
                      </Link>

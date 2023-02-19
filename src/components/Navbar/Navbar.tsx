@@ -11,13 +11,8 @@ export default function Navbar() {
          <Container>
             <div className='d-flex justify-content-between align-items-center'>
                <Link to='/' className='text-decoration-none'>
-                  <div className='d-flex align-items-center'>
-                     <div className='me-3' style={{ maxWidth: '40px', height: 'auto' }}>
-                        <Image src={LogoIcon} className='img-fluid w-100' />
-                     </div>
-                     {/* <div className='' style={{ maxWidth: '185px', height: 'auto' }}>
-                        <Image src={LogoDark} className='w-100 h-100' />
-                     </div> */}
+                  <div style={{ maxWidth: '145px', height: 'auto' }}>
+                     <Image src={LogoDark} className='w-100 h-100 object-cover' />
                   </div>
                </Link>
                <div>

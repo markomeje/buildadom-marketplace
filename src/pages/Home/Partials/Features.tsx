@@ -10,7 +10,7 @@ export default function Features() {
             <Row className='d-flex align-items-center'>
                <Col sm='12' md='7' lg='6' className='mb-4'>
                   <div className="mb-5">
-                     <Image src={girl} className='img-fluid w-100' />
+                     <Image src={girl} className='img-fluid w-100 object-cover' />
                   </div>
                </Col>
                <Col sm='12' md='5' lg='6' className='mb-4 text-md-start text-center'>

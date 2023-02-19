@@ -10,13 +10,8 @@ export default function Footer() {
             <div style={{ padding: '120px 0' }}>
                <Row>
                   <Col sm="12" md="5" className='mb-4'>
-                     <div className='d-flex align-items-center mb-4'>
-                        <div className='me-3' style={{ width: '40px', height: 'auto' }}>
-                           <Image src={LogoIcon} className='img-fluid w-100' />
-                        </div>
-                        <div className='me-3' style={{ width: '185px', height: 'auto' }}>
-                           <Image src={Logo} className='w-100 h-100' />
-                        </div>
+                     <div className='mb-4' style={{ width: '185px', height: 'auto' }}>
+                        <Image src={Logo} className='w-100 h-100' />
                      </div>
                      <div>
                         <h5 className='text-white'>Sign Up To Our Newsletter.</h5>
