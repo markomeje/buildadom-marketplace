@@ -1,8 +1,9 @@
 import { Container, Image } from 'react-bootstrap'
 // import navbarStyles from "./Navbar.module.css";
-import Vector24 from '../../assets/Vector24.png';
+import LogoIcon from '../../assets/icon.png';
 import { Link } from 'react-router-dom';
-import { RxHamburgerMenu } from 'react-icons/rx'
+import { RxHamburgerMenu } from 'react-icons/rx';
+import LogoDark from '../../assets/logo-dark.png';
 
 export default function Navbar() {
    return (
@@ -10,11 +11,17 @@ export default function Navbar() {
          <Container>
             <div className='d-flex justify-content-between align-items-center'>
                <Link to='/' className='text-decoration-none'>
-                  <Image src={Vector24} />
+                  <div className='d-flex align-items-center'>
+                     <div className='me-3' style={{ maxWidth: '40px', height: 'auto' }}>
+                        <Image src={LogoIcon} className='img-fluid w-100' />
+                     </div>
+                     {/* <div className='' style={{ maxWidth: '185px', height: 'auto' }}>
+                        <Image src={LogoDark} className='w-100 h-100' />
+                     </div> */}
+                  </div>
                </Link>
                <div>
                   <RxHamburgerMenu size='2em' className='text-main cursor-pointer' />
-                  {/* <Link to='/signup' className={`px-4 py-2 text-white text-decoration-none rounded-pill bg-main ${navbarStyles.button}`}>Signup Now</Link> */}
                </div>
             </div>
          </Container>

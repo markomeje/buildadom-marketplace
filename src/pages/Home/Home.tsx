@@ -17,17 +17,19 @@ export default function Home() {
                <div className={`bg-white w-100 ${homeStyles.inner}`}>
                   <Row className='d-flex justify-content-center text-center'>
                      <Col sm='12' md='10' lg='7'>
-                        <h1 className='text-dark mb-4'><span className='text-orange'>Buildadom</span> is building the largest digital ecosystem of innovative solutions for transforming the building material industry in Africa</h1>
+                        <h1 className='text-dark mb-4'><span className='text-orange'>Buildadom</span> is an ecosystem of innovative solutions for the building and construction industry.</h1>
                         <Row className='d-flex justify-content-center text-center'>
                            <Col md="10" lg="7">
-                              <p className='text-dark lead mb-4'>Sign Up now and be among the first people to enjoy our amazing features when we launch</p>
+                              <p className='text-dark lead mb-4'>Sign up now and be among the first people to enjoy our amazing features when we launch</p>
                            </Col>
                         </Row>
                         <div className='d-flex justify-content-center'>
                            <Link to='/signup'>
                               <Button className='bg-main rounded-pill me-4 px-4 py-2'>Sign Up</Button>
                            </Link>
-                           <Button className='border-main bg-transparent text-main rounded-pill px-4 py-2'>Learn More</Button>
+                           <Link to='/signup'>
+                              <Button className='border-main bg-transparent text-main rounded-pill px-4 py-2'>Learn More</Button>
+                           </Link>
                         </div>
                      </Col>
                   </Row>
@@ -40,8 +42,8 @@ export default function Home() {
          <section className={`w-100 ${homeStyles.cta}`}>
             <Container>
                <Row className='d-flex justify-content-center text-center'>
-                  <Col sm='12' md='10' lg='9'>
-                     <h3 className='text-white mb-4' style={{ fontWeight: '400', letterSpacing: '0px' }}>Sign Up now and be among the first people to enjoy our amazing features when we launch.</h3>
+                  <Col sm='12' md='10' lg='8'>
+                     <h3 className='text-white mb-4' style={{ fontWeight: '400', letterSpacing: '0px' }}>Sign up now and be among the first people to enjoy our amazing features when we launch.</h3>
                      <Link to='/signup'>
                         <Button className='bg-main rounded-pill px-4 py-2'>Sign Up Now</Button>
                      </Link>
@@ -51,7 +53,7 @@ export default function Home() {
          </section>
          <section className={`w-100 bg-white ${homeStyles.process}`}>
             <Container style={{ maxWidth: '780px' }}>
-               <h1 className='text-main text-center mb-4'>What do you want to achieve?</h1>
+               <h1 className='text-main text-center mb-4'>Whatever you want to achieve, our stack of solutions are designed to help you succeed.</h1>
                <Row>
                   { processFeatures && processFeatures.map((feature, index) => {
                      return (<Col key={index} sm='12' md='6' className='mb-4'>
@@ -84,7 +86,7 @@ export default function Home() {
                <Row className='d-flex align-items-center'>
                   <Col sm='12' md='6' className='mb-4'>
                      <h4 className='text-white mb-4'>You're in Safe Hands</h4>
-                     <p className='text-white lead'>Experience a 40% boost in computing from last generation. MSI Desktop equips the 10th Gen. Intel® Core™ i7 processor with the upmost computing power to bring you an unparalleled gaming experience. Performance compared to i7-9700. Specs varies by model.</p>
+                     <p className='text-white lead'>Experience a 40% boost in computing from last generation. MSI Desktop equips the 10th Gen. Intel® Core™ i7 processor with the upmost computing power to bring you an unparalleled gaming experience. *Performance compared to i7-9700. Specs varies by model.</p>
                   </Col>
                   <Col sm='12' md='6'>
                      <div className=''>
